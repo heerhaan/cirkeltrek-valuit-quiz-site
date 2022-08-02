@@ -7,7 +7,7 @@ var questions = [
         answerThree: "weggelopen",
         answerFour: "de apen waren de mensen",
         correctAnswer: "answerOne",
-        explanation: "Ghouls zijn vreselijke levensvormen die enkel pijn en verdriet veroorzaken",
+        explanation: "Ghouls zijn vreselijke levensvormen,die enkel pijn en verdriet veroorzaken",
     },
     {
         noFormat: true,
