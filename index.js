@@ -1,7 +1,7 @@
 // Alle vragen welk voor kunnen komen in de quiz
 var questions = [
     {
-        question: "Waar zijn alle mensen in de stad naartoe?",
+        question: "Waar zijn alle mensen,in de stad naartoe?",
         answerOne: "Opgegeten door Ghouls",
         answerTwo: "doodgemaakt door robots",
         answerThree: "weggelopen",
@@ -11,7 +11,7 @@ var questions = [
     },
     {
         noFormat: true,
-        question: "01010111 01100101 01101100 01101011 00100000 01110100 01101001 01100101 01101101 00100000 01101001 01110011 00100000 01101000 01100101 01110100 00100000 01100010 01100101 01110011 01110100 01100101 00111111 ",
+        question: "01010111 01100101 01101100 01101011 00100000 01110100 01101001,01100101 01101101 00100000 01101001 01110011 00100000 01101000,01100101 01110100 00100000 01100010 01100101 01110011 01110100 01100101 00111111 ",
         answerOne: "01010011 01110100 01100001 01100100 01110100 01110011 01101000 01101111 01110101 01100100 01100101 01110010 01110011 ",
         answerTwo: "01001101 01110101 01110100 01100001 01101110 01110100 01100101 01101110 ",
         answerThree: "01000111 01101000 01101111 01110101 01101100 01110011 ",
@@ -20,13 +20,31 @@ var questions = [
         wrongExplanation: "ANDROÏDEN.ZIJN.OVERDUIDELIJK.SUPERIEUR",
     },
     {
-        question: "Waarom zijn sommige inwoners zo groot en sommigen zo klein?",
-        answerOne: "Dit komt door mutanten",
-        answerTwo: "Omdat sommigen ouder zijn en anderen jonger",
-        answerThree: "omdat de wereld oneerlijk is",
+        question: "Waarom zijn sommige inwoners,zo groot en sommigen zo klein?",
+        answerOne: "Dit komt,door mutanten",
+        answerTwo: "Omdat sommigen ouder,zijn en anderen jonger",
+        answerThree: "omdat de wereld,oneerlijk is",
         answerFour: "door de bomen",
         correctAnswer: "answerTwo",
-        wrongExplanation: "Smerige biologische wezens veranderen continu van grootte wat innefficientie en verwarring tot gevolg heeft",
+        wrongExplanation: "Smerige biologische wezens veranderen,continu van grootte wat innefficientie,en verwarring tot gevolg heeft",
+    },
+    {
+        question: "Wat is die vervallen wijk aan,de rand van de stad met al die kooien?",
+        answerOne: "Dit is het toekomstige,mutanten \"opvangcentrum\"",
+        answerTwo: "Gorillakooien",
+        answerThree: "Een speeltuin,voor kabouters",
+        answerFour: "Androïde stad",
+        correctAnswer: "answerOne",
+        wrongExplanation: "De wereld wordt vele malen veiliger wanneer de mutanten opgesloten zijn",
+    },
+    {
+        question: "Wat is in godsnaam een \"gorilla gorilla gorilla\"?",
+        answerOne: "Drie keer jijzelf",
+        answerTwo: "Geen idee",
+        answerThree: "Een magische spreuk",
+        answerFour: "Een mutantenkreet die,hebben verder niet zo,veel te vertellen",
+        correctAnswer: "answerFour",
+        wrongExplanation: "De wereld wordt vele malen veiliger wanneer de mutanten opgesloten zijn",
     },
 ];
 let shuffled = [];
@@ -48,16 +66,17 @@ function advanceQuestion(num) {
     const currentQuestion = shuffled[num];
     document.getElementById("question-num").innerHTML = currentNumber;
     document.getElementById("play-score").innerHTML = score;
-    document.getElementById("show-question").innerHTML = currentQuestion.noFormat? currentQuestion.question : currentQuestion.question.toUpperCase().split(" ").join(".");
-    document.getElementById("label-answer-one").innerHTML = currentQuestion.noFormat? currentQuestion.answerOne : currentQuestion.answerOne.toUpperCase().split(" ").join(".");
-    document.getElementById("label-answer-two").innerHTML = currentQuestion.noFormat? currentQuestion.answerTwo: currentQuestion.answerTwo.toUpperCase().split(" ").join(".");
-    document.getElementById("label-answer-three").innerHTML = currentQuestion.noFormat? currentQuestion.answerThree : currentQuestion.answerThree.toUpperCase().split(" ").join(".");
-    document.getElementById("label-answer-four").innerHTML = currentQuestion.noFormat? currentQuestion.answerFour : currentQuestion.answerFour.toUpperCase().split(" ").join(".");
+    document.getElementById("show-question").innerHTML = (currentQuestion.noFormat? currentQuestion.question : currentQuestion.question.toUpperCase().split(" ").join(".")).replaceAll(",", "\n");
+    document.getElementById("label-answer-one").innerHTML = (currentQuestion.noFormat? currentQuestion.answerOne : currentQuestion.answerOne.toUpperCase().split(" ").join(".")).replaceAll(",", "\n");
+    document.getElementById("label-answer-two").innerHTML = (currentQuestion.noFormat? currentQuestion.answerTwo: currentQuestion.answerTwo.toUpperCase().split(" ").join(".")).replaceAll(",", "\n");
+    document.getElementById("label-answer-three").innerHTML = (currentQuestion.noFormat? currentQuestion.answerThree : currentQuestion.answerThree.toUpperCase().split(" ").join(".")).replaceAll(",", "\n");
+    document.getElementById("label-answer-four").innerHTML = (currentQuestion.noFormat? currentQuestion.answerFour : currentQuestion.answerFour.toUpperCase().split(" ").join(".")).replaceAll(",", "\n");
 }
 
 function checkForAnswer() {
     const currentQuestion = shuffled[index];
     const currentQuestionAnswer = currentQuestion.correctAnswer;
+    const currentQuestionAnswerIndex = Object.entries(currentQuestion.correctAnswer);
     const answers = document.getElementsByName("answer");
     let correctOption = null;
 
@@ -71,29 +90,40 @@ function checkForAnswer() {
         document.getElementById('answer-options').style.display = "flex";
     }
 
-    answers.forEach((answer) => {
-        if (answer.checked === true && answer.value === currentQuestionAnswer) {
-            document.getElementById(correctOption).style.backgroundColor = "green";
-            score++;
+    for(let i = 0; i < answers.length; i++)
+    {
+        let answer = answers[i];
 
-            return true;
+        if(answer.checked)
+        {
+            let correct = answer.value == currentQuestionAnswer;
+            console.log("[" + answer.value + "] <> [" + currentQuestionAnswer + "]")
+            console.log(correct? "correct" : "Incorrect")
+        
+            if (correct) {
+                document.getElementById(correctOption).style.backgroundColor = "green";
+                score++;
+
+                return true;
+            }
+            else {
+                const wrongLabelId = answer.labels[0].id;
+                document.getElementById(wrongLabelId).style.backgroundColor = "red";
+                document.getElementById(correctOption).style.backgroundColor = "green";
+                wrong++;
+
+                return false;
+            }
         }
-
-        else if (answer.checked && answer.value !== currentQuestionAnswer) {
-            const wrongLabelId = answer.labels[0].id;
-            document.getElementById(wrongLabelId).style.backgroundColor = "red";
-            document.getElementById(correctOption).style.backgroundColor = "green";
-            wrong++;
-
-            return false;
-        }
-    })
+    }
 }
 
 
 
 function handleQuestionAdvance() {
     var correct = checkForAnswer();
+
+    console.log("checked: " + correct)
     
     if (correct) {
         index++;
