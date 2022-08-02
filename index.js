@@ -46,6 +46,24 @@ var questions = [
         correctAnswer: "answerFour",
         wrongExplanation: "De wereld wordt vele malen veiliger wanneer de mutanten opgesloten zijn",
     },
+    {
+        question: "Waarom hebben mutanten zoveel piemels?",
+        answerOne: "overcompensatie",
+        answerTwo: "Voor een overvloed,aan mutantvrouwen",
+        answerThree: "omdat ze vies zijn",
+        answerFour: "alle mutanten zijn homos",
+        correctAnswer: "answerThree",
+        wrongExplanation: "geslachts organen zijn,overbodig bij superieure,androïdes",
+    },
+    {
+        question: "Waarom ben ik een gorilla?",
+        answerOne: "Omdat ik straks,in een androïde,veranderd wordt",
+        answerTwo: "Gorilla goed",
+        answerThree: "Pech",
+        answerFour: "Door mutanten",
+        correctAnswer: "answerOne",
+        wrongExplanation: "Organische wezens kunnen,gered worden door,de androïdes",
+    }
 ];
 let shuffled = [];
 
