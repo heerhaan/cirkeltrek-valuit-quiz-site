@@ -26,7 +26,7 @@ var questions = [
         answerThree: "omdat de wereld,oneerlijk is",
         answerFour: "door de bomen",
         correctAnswer: "answerTwo",
-        wrongExplanation: "Smerige biologische wezens veranderen,continu van grootte wat innefficientie,en verwarring tot gevolg heeft",
+        explanation: "Smerige biologische wezens veranderen,continu van grootte wat innefficientie,en verwarring tot gevolg heeft",
     },
     {
         question: "Wat is die vervallen wijk aan,de rand van de stad met al die kooien?",
@@ -35,7 +35,7 @@ var questions = [
         answerThree: "Een speeltuin,voor kabouters",
         answerFour: "Androïde stad",
         correctAnswer: "answerOne",
-        wrongExplanation: "De wereld wordt vele malen veiliger wanneer de mutanten opgesloten zijn",
+        explanation: "De wereld wordt vele malen veiliger wanneer de mutanten opgesloten zijn",
     },
     {
         question: "Wat is in godsnaam een \"gorilla gorilla gorilla\"?",
@@ -44,7 +44,7 @@ var questions = [
         answerThree: "Een magische spreuk",
         answerFour: "Een mutantenkreet die,hebben verder niet zo,veel te vertellen",
         correctAnswer: "answerFour",
-        wrongExplanation: "De wereld wordt vele malen veiliger wanneer de mutanten opgesloten zijn",
+        explanation: "De wereld wordt vele malen veiliger wanneer de mutanten opgesloten zijn",
     },
     {
         question: "Waarom hebben mutanten zoveel piemels?",
@@ -53,7 +53,7 @@ var questions = [
         answerThree: "omdat ze vies zijn",
         answerFour: "alle mutanten zijn homos",
         correctAnswer: "answerThree",
-        wrongExplanation: "geslachts organen zijn,overbodig bij superieure,androïdes",
+        explanation: "geslachts organen zijn,overbodig bij superieure,androïdes",
     },
     {
         question: "Waarom ben ik een gorilla?",
@@ -62,7 +62,7 @@ var questions = [
         answerThree: "Pech",
         answerFour: "Door mutanten",
         correctAnswer: "answerOne",
-        wrongExplanation: "Organische wezens kunnen,gered worden door,de androïdes",
+        explanation: "Organische wezens kunnen,gered worden door,de androïdes",
     }
 ];
 let shuffled = [];
