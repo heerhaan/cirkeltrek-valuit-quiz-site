@@ -7,6 +7,7 @@ var questions = [
         answerThree: ":(",
         answerFour: "uergh",
         correctAnswer: "answerOne",
+        wrongExplanation: "AAP.MAAKT.BLIJ.",
     },
     {
         question: "two",
@@ -15,6 +16,7 @@ var questions = [
         answerThree: "wieure",
         answerFour: "bami",
         correctAnswer: "answerFour",
+        wrongExplanation: "TWEE.IS.CHINEES.",
     },
     {
         question: "pernis",
@@ -23,6 +25,7 @@ var questions = [
         answerThree: "b",
         answerFour: "uKATGOEDJAHEELMOOI",
         correctAnswer: "answerTwo",
+        wrongExplanation: "GESLACHTSDELEN.VERDIENEN.EEN.NEUTRALE.DOCH.KLEINE.SCHRIKREACTIE.IN.MENSENCULTUUR",
     },
 ];
 let shuffled = [];
@@ -64,18 +67,15 @@ function checkForAnswer() {
     })
 
     if (answers[0].checked === false && answers[1].checked === false && answers[2].checked === false && answers[3].checked == false) {
-        document.getElementById('answer-options').style.display = "flex"
+        document.getElementById('answer-options').style.display = "flex";
     }
 
     answers.forEach((answer) => {
         if (answer.checked === true && answer.value === currentQuestionAnswer) {
             document.getElementById(correctOption).style.backgroundColor = "green";
             score++;
-            index++;
 
-            setTimeout(() => {
-                currentNumber++
-            }, 500)
+            return true;
         }
 
         else if (answer.checked && answer.value !== currentQuestionAnswer) {
@@ -83,11 +83,8 @@ function checkForAnswer() {
             document.getElementById(wrongLabelId).style.backgroundColor = "red";
             document.getElementById(correctOption).style.backgroundColor = "green";
             wrong++;
-            index++;
 
-            setTimeout(() => {
-                currentNumber++;
-            }, 500)
+            return false;
         }
     })
 }
@@ -95,18 +92,43 @@ function checkForAnswer() {
 
 
 function handleQuestionAdvance() {
-    checkForAnswer();
-    unCheckRadioButtons();
+    var correct = checkForAnswer();
+    
+    if (correct) {
+        index++;
+        currentNumber++;
 
-    setTimeout(() => {
-        if (shuffled.length > index) {
-            advanceQuestion(index);
-        }
-        else {
-            handleEndGame();
-        }
-        resetOptionBackground();
-    }, 500);
+        unCheckRadioButtons();
+        setTimeout(() => {
+            if (shuffled.length > index) {
+                advanceQuestion(index);
+            }
+            else {
+                handleEndGame();
+            }
+            resetOptionBackground();
+        }, 500);
+    }
+    else {
+        const currentQuestion = shuffled[index];
+        document.getElementById('wrong-answer-reasoning').innerHTML = currentQuestion.wrongExplanation;
+        document.getElementById('wrong-explanation').style.display = "flex";
+    }
+}
+
+function closeWrongAnswerExplanation() {
+    document.getElementById('wrong-explanation').style.display = "none";
+    
+    index++;
+    currentNumber++;
+    unCheckRadioButtons();
+    if (shuffled.length > index) {
+        advanceQuestion(index);
+    }
+    else {
+        handleEndGame();
+    }
+    resetOptionBackground();
 }
 
 function resetOptionBackground() {
