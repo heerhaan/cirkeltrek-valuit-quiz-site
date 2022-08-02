@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, intial-scale=1.0" />
+    <title>ANDROÏDE QUIZLET</title>
+
+    <link rel="stylesheet" href="index.css" />
+</head>
+
+<body onload="advanceQuestion(0)">
+    <main>
+        <div class="modal-container" id="finish-score">
+            <div class="modal-content-container">
+                <h1>QUIZ.AFGEROND</h1>
+
+                <div class="score-details">
+                    <p>FOUT: <span id="wrong-answers"></span></p>
+                    <p>GOED: <span id="correct-answers"></span></p>
+                    <p><span id="remarks"></span></p>
+                </div>
+
+                <div class="modal-button-container">
+                    <button onclick="closeScoreModal()">HERSTART</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="quiz-container">
+            <div class="quiz-details-container">
+                <h1>SCORE: <span id="play-score"></span></h1>
+                <h1>VRAAG: <span id="question-num"></span></h1>
+            </div>
+
+            <div class="question-container">
+                <h1 id="show-question"></h1>
+            </div>
+
+            <div class="answers-container">
+                <div class="modal-container" id="answer-options">
+                    <div class="modal-content-container">
+                        <h1>SELECTEER.HET.JUISTE.ANTWOORD</h1>
+
+                        <div class="modal-button-container">
+                            <button onclick="closeOptionModal()">VERDER</button>
+                        </div>
+                    </div>
+                </div>
+
+                <span>
+                    <input type="radio" id="answer-one" name="answer" class="answer" value="answerOne">
+                    <label for="answer-one" class="answer" id="label-answer-one"></label>
+                </span>
+                <span>
+                    <input type="radio" id="answer-two" name="answer" class="answer" value="answerTwo">
+                    <label for="answer-two" class="answer" id="label-answer-two"></label>
+                </span>
+                <span>
+                    <input type="radio" id="answer-three" name="answer" class="answer" value="answerThree">
+                    <label for="answer-three" class="answer" id="label-answer-three"></label>
+                </span>
+                <span>
+                    <input type="radio" id="answer-four" name="answer" class="answer" value="answerFour">
+                    <label for="answer-four" class="answer" id="label-answer-four"></label>
+                </span>
+            </div>
+
+            <div class="advance-button-container">
+                <button onclick="handleQuestionAdvance()">VOLGENDE</button>
+            </div>
+        </div>
+    </main>
+    <script src="index.js"></script>
+</body>
+</html>
