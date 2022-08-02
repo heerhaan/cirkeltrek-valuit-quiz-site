@@ -63,6 +63,15 @@ var questions = [
         answerFour: "Door mutanten",
         correctAnswer: "answerOne",
         explanation: "Organische wezens kunnen,gered worden door,de androïdes",
+    },
+    {
+        question: "Wat doe je met banaan?",
+        answerOne: "Steek bij mutant in zij hol",
+        answerTwo: "Geef aan gorilla",
+        answerThree: "Verkopen die hap",
+        answerFour: "desynthiseren voor neutroamine",
+        correctAnswer: "answerFour",
+        explanation: "Efficiënt gebruik van,grondstoffen is essentieel",
     }
 ];
 let shuffled = [];
