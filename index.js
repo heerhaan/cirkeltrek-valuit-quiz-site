@@ -35,7 +35,7 @@ var questions = [
         answerThree: "Een speeltuin,voor kabouters",
         answerFour: "Androïde stad",
         correctAnswer: "answerOne",
-        explanation: "De wereld wordt vele malen veiliger wanneer de mutanten opgesloten zijn",
+        explanation: "De wereld wordt vele malen,veiliger wanneer de mutanten opgesloten zijn",
     },
     {
         question: "Wat is in godsnaam een \"gorilla gorilla gorilla\"?",
@@ -44,7 +44,7 @@ var questions = [
         answerThree: "Een magische spreuk",
         answerFour: "Een mutantenkreet die,hebben verder niet zo,veel te vertellen",
         correctAnswer: "answerFour",
-        explanation: "De wereld wordt vele malen veiliger wanneer de mutanten opgesloten zijn",
+        explanation: "Mutanten hebben beperkte vocabulariteit",
     },
     {
         question: "Waarom hebben mutanten zoveel piemels?",
