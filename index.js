@@ -81,6 +81,15 @@ var questions = [
         answerFour: "Pakken en rennen",
         correctAnswer: "answerThree",
         explanation: "Mutanten zijn onbetrouwbaar maar ook heel dom",
+    },
+    {
+        question: "Hoe noem je een leger mutanten?",
+        answerOne: "Een Legioen",
+        answerTwo: "Een groep",
+        answerThree: "Een troep",
+        answerFour: "Een teringzooi",
+        correctAnswer: "answerFour",
+        explanation: "Alsof je mutanten ook maar in de buurt van georganiseerd krijgt",
     }
 ];
 let shuffled = [];
@@ -210,11 +219,11 @@ function handleEndGame() {
         remark = "RADIOACTIVEIT.HEEFT.JE.BREIN.TE.ACTIEF.BESCHADIGD. ELIMINATIE.IS.DE.LAATSTE.OPLOSSING.";
         remarkColor = "red";
     }
-    else if (score >= 4 && score < 7) {
+    else if (score >= 4 && score < 8) {
         remark = "MATIGE.INTELLIGENTIE.WAARGENOMEN. KANSHEBBER.VOOR.ASSIMILATIE.";
         remarkColor = "orange";
     }
-    else if (score >= 7) {
+    else if (score >= 8) {
         remark = "HOOGWAARDIGE.INTELLIGENTIE.WAARGENOMEN. DAVEREND.APPLAUS.";
         remarkColor = "green";
     }
