@@ -7,7 +7,7 @@ var questions = [
         answerThree: "weggelopen",
         answerFour: "de apen waren de mensen",
         correctAnswer: "answerOne",
-        wrongExplanation: "Ghouls zijn vreselijke levensvormen die enkel pijn en verdriet veroorzaken",
+        explanation: "Ghouls zijn vreselijke levensvormen die enkel pijn en verdriet veroorzaken",
     },
     {
         noFormat: true,
@@ -17,7 +17,7 @@ var questions = [
         answerThree: "01000111 01101000 01101111 01110101 01101100 01110011 ",
         answerFour: "01000001 01101110 01100100 01110010 01101111 11101111 01100100 01100101 01110011 ",
         correctAnswer: "answerFour",
-        wrongExplanation: "ANDROÏDEN.ZIJN.OVERDUIDELIJK.SUPERIEUR",
+        explanation: "ANDROÏDEN.ZIJN.OVERDUIDELIJK.SUPERIEUR",
     },
     {
         question: "Waarom zijn sommige inwoners,zo groot en sommigen zo klein?",
@@ -136,37 +136,24 @@ function checkForAnswer() {
     }
 }
 
-
-
 function handleQuestionAdvance() {
-    var correct = checkForAnswer();
+    const currentQuestion = shuffled[index];
+    var explanationText = "";
+    var isCorrect = checkForAnswer();
 
-    console.log("checked: " + correct)
-    
-    if (correct) {
-        index++;
-        currentNumber++;
+    if (isCorrect) {
+        explanationText = "ANTWOORD.IS.CORRECT.";
+    } else {
+        explanationText = "ANTWOORD.IS.INCORRECT.";
+    }
 
-        unCheckRadioButtons();
-        setTimeout(() => {
-            if (shuffled.length > index) {
-                advanceQuestion(index);
-            }
-            else {
-                handleEndGame();
-            }
-            resetOptionBackground();
-        }, 500);
-    }
-    else {
-        const currentQuestion = shuffled[index];
-        document.getElementById('wrong-answer-reasoning').innerText = currentQuestion.wrongExplanation.toUpperCase().split(" ").join(".");
-        document.getElementById('wrong-explanation').style.display = "flex";
-    }
+    document.getElementById('answer-reasoning-title').innerHTML = explanationText;
+    document.getElementById('answer-reasoning').innerHTML = currentQuestion.explanation.toUpperCase().split(" ").join(".");
+    document.getElementById('answer-explanation-modal').style.display = "flex";
 }
 
-function closeWrongAnswerExplanation() {
-    document.getElementById('wrong-explanation').style.display = "none";
+function closeExplanationModal() {
+    document.getElementById('answer-explanation-modal').style.display = "none";
     
     index++;
     currentNumber++;
