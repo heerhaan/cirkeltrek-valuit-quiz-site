@@ -66,7 +66,7 @@ var questions = [
     },
     {
         question: "Wat doe je met banaan?",
-        answerOne: "Steek bij mutant in zij hol",
+        answerOne: "Steek bij mutant in zijn hol",
         answerTwo: "Geef aan gorilla",
         answerThree: "Verkopen die hap",
         answerFour: "desynthiseren voor neutroamine",
