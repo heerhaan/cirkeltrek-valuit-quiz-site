@@ -72,6 +72,15 @@ var questions = [
         answerFour: "desynthiseren voor neutroamine",
         correctAnswer: "answerFour",
         explanation: "Efficiënt gebruik van,grondstoffen is essentieel",
+    },
+    {
+        question: "Een mutant biedt je twee flippo's aan als je met hem een blokje omgaat, wat doe je?",
+        answerOne: "Beleefd accepteren",
+        answerTwo: "Notenstoot",
+        answerThree: "Aannemen en één teruggeven",
+        answerFour: "Pakken en rennen",
+        correctAnswer: "answerThree",
+        explanation: "Mutanten zijn onbetrouwbaar maar ook heel dom",
     }
 ];
 let shuffled = [];
@@ -198,7 +207,7 @@ function handleEndGame() {
 
     // Print een dom bericht die de vraagsteller beoordeelt
     if (score <= 3) {
-        remark = "RADIOACTIVEIT.HEEFT.JE.BREIN.TE.ACTIEF.BESCHADIGD. ELIMENEREN.";
+        remark = "RADIOACTIVEIT.HEEFT.JE.BREIN.TE.ACTIEF.BESCHADIGD. ELIMINATIE.IS.DE.LAATSTE.OPLOSSING.";
         remarkColor = "red";
     }
     else if (score >= 4 && score < 7) {
