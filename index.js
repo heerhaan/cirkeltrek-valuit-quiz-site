@@ -56,7 +56,7 @@ var questions = [
         explanation: "geslachts organen zijn,overbodig bij superieure,androïdes",
     },
     {
-        question: "Waarom ben ik een gorilla?",
+        question: "Waarom ben ik geen gorilla?",
         answerOne: "Omdat ik straks,in een androïde,veranderd wordt",
         answerTwo: "Gorilla goed",
         answerThree: "Pech",
