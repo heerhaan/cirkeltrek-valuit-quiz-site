@@ -26,16 +26,18 @@
             </div>
         </div>
 
-        <div class="modal-container" id="wrong-explanation">
+        <div class="modal-container" id="answer-explanation-modal">
             <div class="modal-content-container">
-                <h1>!!ANTWOORD.INCORRECT!!</h1>
+                <h1 id="answer-reasoning-title"></h1>
 
                 <div class="score-details">
-                    <p id="wrong-answer-reasoning"></p>
+                    <div>
+                        <p id="answer-reasoning"></p>
+                    </div>
                 </div>
 
                 <div class="modal-button-container">
-                    <button onclick="closeWrongAnswerExplanation()">VERDER</button>
+                    <button onclick="closeExplanationModal()">VERDER</button>
                 </div>
             </div>
         </div>

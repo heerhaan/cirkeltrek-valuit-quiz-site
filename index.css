@@ -23,8 +23,8 @@ main {
 }
 
 .quiz-container {
-    width: 40rem;
-    height: 30rem;
+    width: 750px;
+    height: 500px;
     background-color: lightgray;
     display: flex;
     flex-direction: column;
@@ -162,7 +162,6 @@ input[type=radio]:checked ~ .answer {
 
 .score-details {
     width: 20rem;
-    height: 15rem;
     display: flex;
     flex-direction: column;
     align-items: center;
