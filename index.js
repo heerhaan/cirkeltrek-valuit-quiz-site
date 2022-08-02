@@ -148,7 +148,7 @@ function handleQuestionAdvance() {
     }
 
     document.getElementById('answer-reasoning-title').innerHTML = explanationText;
-    document.getElementById('answer-reasoning').innerHTML = currentQuestion.explanation.toUpperCase().split(" ").join(".");
+    document.getElementById('answer-reasoning').innerHTML = (currentQuestion.explanation.toUpperCase().split(" ").join(".")).replaceAll(",", "\n");
     document.getElementById('answer-explanation-modal').style.display = "flex";
 }
 
