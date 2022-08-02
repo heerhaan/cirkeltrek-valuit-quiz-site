@@ -1,31 +1,32 @@
 // Alle vragen welk voor kunnen komen in de quiz
 var questions = [
     {
-        question: "monke?",
-        answerOne: "!!",
-        answerTwo: "...",
-        answerThree: ":(",
-        answerFour: "uergh",
+        question: "Waar zijn alle mensen in de stad naartoe?",
+        answerOne: "Opgegeten door Ghouls",
+        answerTwo: "doodgemaakt door robots",
+        answerThree: "weggelopen",
+        answerFour: "de apen waren de mensen",
         correctAnswer: "answerOne",
-        wrongExplanation: "AAP.MAAKT.BLIJ.",
+        wrongExplanation: "Ghouls zijn vreselijke levensvormen die enkel pijn en verdriet veroorzaken",
     },
     {
-        question: "two",
-        answerOne: "one",
-        answerTwo: "eeee",
-        answerThree: "wieure",
-        answerFour: "bami",
+        noFormat: true,
+        question: "01010111 01100101 01101100 01101011 00100000 01110100 01101001 01100101 01101101 00100000 01101001 01110011 00100000 01101000 01100101 01110100 00100000 01100010 01100101 01110011 01110100 01100101 00111111 ",
+        answerOne: "01010011 01110100 01100001 01100100 01110100 01110011 01101000 01101111 01110101 01100100 01100101 01110010 01110011 ",
+        answerTwo: "01001101 01110101 01110100 01100001 01101110 01110100 01100101 01101110 ",
+        answerThree: "01000111 01101000 01101111 01110101 01101100 01110011 ",
+        answerFour: "01000001 01101110 01100100 01110010 01101111 11101111 01100100 01100101 01110011 ",
         correctAnswer: "answerFour",
-        wrongExplanation: "TWEE.IS.CHINEES.",
+        wrongExplanation: "ANDROÏDEN.ZIJN.OVERDUIDELIJK.SUPERIEUR",
     },
     {
-        question: "pernis",
-        answerOne: "aaa",
-        answerTwo: "a",
-        answerThree: "b",
-        answerFour: "uKATGOEDJAHEELMOOI",
+        question: "Waarom zijn sommige inwoners zo groot en sommigen zo klein?",
+        answerOne: "Dit komt door mutanten",
+        answerTwo: "Omdat sommigen ouder zijn en anderen jonger",
+        answerThree: "omdat de wereld oneerlijk is",
+        answerFour: "door de bomen",
         correctAnswer: "answerTwo",
-        wrongExplanation: "GESLACHTSDELEN.VERDIENEN.EEN.NEUTRALE.DOCH.KLEINE.SCHRIKREACTIE.IN.MENSENCULTUUR",
+        wrongExplanation: "Smerige biologische wezens veranderen continu van grootte wat innefficientie en verwarring tot gevolg heeft",
     },
 ];
 let shuffled = [];
@@ -47,11 +48,11 @@ function advanceQuestion(num) {
     const currentQuestion = shuffled[num];
     document.getElementById("question-num").innerHTML = currentNumber;
     document.getElementById("play-score").innerHTML = score;
-    document.getElementById("show-question").innerHTML = currentQuestion.question;
-    document.getElementById("label-answer-one").innerHTML = currentQuestion.answerOne;
-    document.getElementById("label-answer-two").innerHTML = currentQuestion.answerTwo;
-    document.getElementById("label-answer-three").innerHTML = currentQuestion.answerThree;
-    document.getElementById("label-answer-four").innerHTML = currentQuestion.answerFour;
+    document.getElementById("show-question").innerHTML = currentQuestion.noFormat? currentQuestion.question : currentQuestion.question.toUpperCase().split(" ").join(".");
+    document.getElementById("label-answer-one").innerHTML = currentQuestion.noFormat? currentQuestion.answerOne : currentQuestion.answerOne.toUpperCase().split(" ").join(".");
+    document.getElementById("label-answer-two").innerHTML = currentQuestion.noFormat? currentQuestion.answerTwo: currentQuestion.answerTwo.toUpperCase().split(" ").join(".");
+    document.getElementById("label-answer-three").innerHTML = currentQuestion.noFormat? currentQuestion.answerThree : currentQuestion.answerThree.toUpperCase().split(" ").join(".");
+    document.getElementById("label-answer-four").innerHTML = currentQuestion.noFormat? currentQuestion.answerFour : currentQuestion.answerFour.toUpperCase().split(" ").join(".");
 }
 
 function checkForAnswer() {
@@ -111,7 +112,7 @@ function handleQuestionAdvance() {
     }
     else {
         const currentQuestion = shuffled[index];
-        document.getElementById('wrong-answer-reasoning').innerHTML = currentQuestion.wrongExplanation;
+        document.getElementById('wrong-answer-reasoning').innerText = currentQuestion.wrongExplanation.toUpperCase().split(" ").join(".");
         document.getElementById('wrong-explanation').style.display = "flex";
     }
 }
